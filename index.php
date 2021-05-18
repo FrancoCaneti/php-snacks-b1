@@ -71,6 +71,24 @@ conosciamo nella documentazione) che:
 3. che age sia un numero.
 Se tutto è ok stampare “Accesso riuscito”, altrimenti “Accesso negato”*/ 
 ?>
+<?php 
+$name = $_GET['name'];
+$mail = $_GET['mail'];
+$age = $_GET['age'];
 
+if (strlen($name) < 4) {
+    echo 'ACCESSO NEGATO: il nome deve contenere almeno 4 caratteri';
+}
+elseif ( strpos($mail, '@') === false || strpos($mail, '.') === false ) {
+    echo 'ACCESSO NEGATO: la mail deve comprendere  @ e  . al suo interno';
+}
+elseif (!is_numeric($age)) {
+    echo 'ACCESSO NEGATO: Inserisci un valore numerico';
+}
+else {
+    echo 'ACCESSO RIUSCITO';
+}
+
+?>
 </body>
 </html>
